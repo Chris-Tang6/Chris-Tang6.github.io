@@ -18,7 +18,7 @@
   <meta name="author" content="Wuguo">
   <meta name="keywords" content="">
   
-  <title>打个招呼吧！ - 小武的Blog</title>
+  <title>Java笔记-泛型 - 小武的Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="打个招呼吧！">
+            <span class="h2" id="subtitle" title="Java笔记-泛型">
               
             </span>
 
@@ -173,7 +173,7 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-08-08 11:02" pubdate>
+      <time datetime="2021-08-08 10:00" pubdate>
         2021年8月8日 上午
       </time>
     </span>
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      80 字
+      568 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      7
        分钟
     </span>
   
@@ -225,18 +225,57 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">打个招呼吧！</h1>
+            <h1 style="display: none">Java笔记-泛型</h1>
             
             <div class="markdown-body">
-              <p>大家好，我叫小武，欢迎来到我的博客。在这里我会分享一些学习笔记以及生活上去的趣事。感谢大家的关注😋😋</p>
-<p><em>打个广告哈：</em></p>
-<p>我在B站上 [<a target="_blank" rel="noopener" href="https://space.bilibili.com/54377431">@小五很哇塞</a>] 也会上传一些视频，如果喜欢看的话，不妨三连一波~</p>
+              <h1 id="Java笔记-泛型"><a href="#Java笔记-泛型" class="headerlink" title="Java笔记-泛型"></a>Java笔记-泛型</h1><h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>由于之前不能够对加入到集合中的元素进行约束，可能会出现类型转换异常ClassCastException的异常。(不安全💔)</p>
+<p>在遍历集合的时候，需要类型转换，数据量一大，效率就低。(效率低💔)</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-meta">@SuppressWarnings(&#123;&quot;all&quot;&#125;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">generic01</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        ArrayList list = <span class="hljs-keyword">new</span> ArrayList();<br>        list.add(<span class="hljs-keyword">new</span> Dog(<span class="hljs-string">&quot;tom&quot;</span>, <span class="hljs-number">3</span>));<br>        list.add(<span class="hljs-keyword">new</span> Dog(<span class="hljs-string">&quot;jack&quot;</span>, <span class="hljs-number">5</span>));<br>        list.add(<span class="hljs-keyword">new</span> Dog(<span class="hljs-string">&quot;lily&quot;</span>, <span class="hljs-number">1</span>));<br><br>        list.add(<span class="hljs-keyword">new</span> Cat(<span class="hljs-string">&quot;kitty&quot;</span>, <span class="hljs-number">4</span>));<br><br>        <span class="hljs-keyword">for</span> (Object o : list) &#123;<br>            System.out.println(((Dog) o).getName() + <span class="hljs-string">&quot;-&quot;</span> + ((Dog) o).getAge());<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p><img src="H:\blog\assertPics\image-20210511151918974.png" srcset="/img/loading.gif" lazyload alt="image-20210511151918974"></p>
+<p>使用泛型后，通过对存入到集合中元素进行类型约束，可以自动检查添加的元素类型是否是约定的类型；</p>
+<p>同时在遍历时，不需要再进行转型，使得效率提高🧡🧡。</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">generic01</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        ArrayList&lt;Dog&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;Dog&gt;();<br>        list.add(<span class="hljs-keyword">new</span> Dog(<span class="hljs-string">&quot;tom&quot;</span>, <span class="hljs-number">3</span>));<br>        list.add(<span class="hljs-keyword">new</span> Dog(<span class="hljs-string">&quot;jack&quot;</span>, <span class="hljs-number">5</span>));<br>        list.add(<span class="hljs-keyword">new</span> Dog(<span class="hljs-string">&quot;lily&quot;</span>, <span class="hljs-number">1</span>));<br><br><span class="hljs-comment">//        list.add(new Cat(&quot;kitty&quot;, 4));    //使用泛型后，使用这条语句，会提示错误</span><br><br>        <span class="hljs-keyword">for</span> (Dog o : list) &#123;<br>            System.out.println(o.getName() + <span class="hljs-string">&quot;-&quot;</span> + o.getAge());<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>如果将上面的那行代码取消注释，试图向list中添加Cat对象时，idea将会提示我有语法错误，这正体现出使用泛型的一个好处就是类型进行【约束】，保证了代码的安全性。</p>
+<p>❌错误提示：</p>
+<p><img src="H:\blog\assertPics\image-20210511152257920.png" srcset="/img/loading.gif" lazyload alt="image-20210511152257920"></p>
+<h2 id="是什么？"><a href="#是什么？" class="headerlink" title="是什么？"></a>是什么？</h2><p><img src="H:\blog\assertPics\image-20210511153557534.png" srcset="/img/loading.gif" lazyload alt="image-20210511153557534"></p>
+<p><img src="H:\blog\assertPics\image-20210511153709638.png" srcset="/img/loading.gif" lazyload alt="image-20210511153709638"></p>
+<p>在编译时就确定E是什么类型；</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p><img src="H:\blog\assertPics\image-20210511154016796.png" srcset="/img/loading.gif" lazyload alt="image-20210511154016796"></p>
+<p>1、泛型中指定的数据类型必须是应用类型，不可以是基本数据类型（short\int\long\byte\float\double\boolean\char）；</p>
+<p>2、指定泛型后，传入的类型可以是指定的类型，也可以是其子类型；</p>
+<p>3、泛型的使用形式</p>
+<p>下面两种都可以，推荐使用第二种，更加简洁。</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">ArrayList&lt;Integer&gt; list1 = <span class="hljs-keyword">new</span> ArryList&lt;Integer&gt;();<br>ArrayList&lt;Integer&gt; list2 = <span class="hljs-keyword">new</span> ArryList&lt;&gt;();<br>ArrayList list3 = <span class="hljs-keyword">new</span> ArryList();   <span class="hljs-comment">//不使用泛型，默认是Object</span><br></code></pre></div></td></tr></table></figure>
+
+<h2 id="自定义泛型-泛型接口-泛型方法"><a href="#自定义泛型-泛型接口-泛型方法" class="headerlink" title="自定义泛型/泛型接口/泛型方法"></a>自定义泛型/泛型接口/泛型方法</h2><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">//泛型</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> 类名&lt;<span class="hljs-title">T</span>,<span class="hljs-title">R</span>...&gt;</span>&#123;<br>	成员<br>&#125;<br><br><span class="hljs-comment">//泛型接口</span><br><span class="hljs-class"><span class="hljs-keyword">interface</span> 接口名&lt;<span class="hljs-title">T</span>,<span class="hljs-title">R</span>...&gt;</span>&#123;    <br>&#125;<br><br><span class="hljs-comment">//泛型方法</span><br>修饰符 &lt;T,R...&gt; 返回类型 方法名(参数列表)&#123;    <br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p><img src="H:\blog\assertPics\image-20210511165125110.png" srcset="/img/loading.gif" lazyload alt="image-20210511165125110"></p>
+<p><img src="H:\blog\assertPics\image-20210511165242210.png" srcset="/img/loading.gif" lazyload alt="image-20210511165242210"></p>
+<p><img src="H:\blog\assertPics\image-20210511170459084.png" srcset="/img/loading.gif" lazyload alt="image-20210511170459084"></p>
+<p><img src="H:\blog\assertPics\image-20210511172117159.png" srcset="/img/loading.gif" lazyload alt="image-20210511172117159"></p>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
+                    
+                  </div>
                 
               </div>
               
@@ -251,12 +290,18 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2021/08/08/Java%E7%AC%94%E8%AE%B0-%E6%AD%A3%E5%88%99/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Java笔记-正则</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/08/08/Java%E7%AC%94%E8%AE%B0-%E5%8F%8D%E5%B0%84Reflection/">
-                        <span class="hidden-mobile">Java笔记-反射</span>
+                      <a href="/2021/08/08/Java%E7%AC%94%E8%AE%B0-%E9%9B%86%E5%90%88%E4%B8%93%E9%A2%98/">
+                        <span class="hidden-mobile">Java笔记-集合</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

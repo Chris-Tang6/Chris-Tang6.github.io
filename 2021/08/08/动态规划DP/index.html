@@ -18,7 +18,7 @@
   <meta name="author" content="Wuguo">
   <meta name="keywords" content="">
   
-  <title>打个招呼吧！ - 小武的Blog</title>
+  <title>动态规划DP - 小武的Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="打个招呼吧！">
+            <span class="h2" id="subtitle" title="动态规划DP">
               
             </span>
 
@@ -173,7 +173,7 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-08-08 11:02" pubdate>
+      <time datetime="2021-08-08 10:00" pubdate>
         2021年8月8日 上午
       </time>
     </span>
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      80 字
+      520 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      7
        分钟
     </span>
   
@@ -225,18 +225,45 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">打个招呼吧！</h1>
+            <h1 style="display: none">动态规划DP</h1>
             
             <div class="markdown-body">
-              <p>大家好，我叫小武，欢迎来到我的博客。在这里我会分享一些学习笔记以及生活上去的趣事。感谢大家的关注😋😋</p>
-<p><em>打个广告哈：</em></p>
-<p>我在B站上 [<a target="_blank" rel="noopener" href="https://space.bilibili.com/54377431">@小五很哇塞</a>] 也会上传一些视频，如果喜欢看的话，不妨三连一波~</p>
+              <h1 id="动态规划DP"><a href="#动态规划DP" class="headerlink" title="动态规划DP"></a>动态规划DP</h1><p>1、求斐波那契数</p>
+<p>Fibonacci以如下被以递推的方法定义：F(0)=0，F(1)=1, F(n)=F(n - 1)+F(n - 2)（n ≥ 2，n ∈ N*），简单的理解就是从n=2开始，每一项都等于前两项的和。<br>首先使用常规的方法求斐波那契数，也就是根据其定义，使用递归</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getFib2</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span></span>&#123;<br>    <span class="hljs-keyword">if</span>(n==<span class="hljs-number">0</span>)&#123;<br>    	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>	&#125;         <br>    <span class="hljs-keyword">if</span>(n&lt;=<span class="hljs-number">2</span>)&#123;<br>    	<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>    &#125;<br>	<span class="hljs-keyword">return</span> getFib2(n-<span class="hljs-number">1</span>)+getFib2(n-<span class="hljs-number">2</span>);<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>递归方法往往耗时，消耗内存。而且上面的方法有很多重复计算。例如，我在计算Fib(5)时，需要计算Fib(4)+Fib(3)；由于n=4,n=3均不是递归的终止条件，所以他们都需要再递归下去。先看Fib(4)：</p>
+<p>由于Fib(4)由于没有到达递归的终止条件，仍然需要递归计算：Fib(3)+Fib(2)，然后Fib(3)再递归一次才终于计算出Fib(4)；</p>
+<p>同理，Fib(3)也是这样算的。</p>
+<p>不知道你有没有发现，在求Fib(5)时，我们就计算了两次Fib(3)，这就发生了多余的计算。</p>
+<p>下面的就用DP来优化下。具体的细节也就是，使用一个输入来存储已经计算过的结果，比如上面的Fib(3)，当我们后面再次需要这个结果时，直接查询这个数组即可，这可比再算一遍要划得来。</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <br>	<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> []dp =<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">100</span>];	<span class="hljs-comment">//定义存储表</span><br>	<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getFib</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span></span>&#123;<br>        <span class="hljs-keyword">if</span>(n==<span class="hljs-number">0</span>)&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        &#125;<br>        <span class="hljs-keyword">if</span>(n&lt;=<span class="hljs-number">2</span>)&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>        &#125;<br>        <span class="hljs-keyword">if</span>(dp[n]!=<span class="hljs-number">0</span>)&#123;			<span class="hljs-comment">//查表</span><br>            <span class="hljs-keyword">return</span> dp[n];		<br>        &#125;<br>        <span class="hljs-comment">//当查询表后，发现没有计算过时，再使用递归来算，并存到表中</span><br>        dp[n]=getFib(n-<span class="hljs-number">1</span>)+getFib(n-<span class="hljs-number">2</span>);<br>        <span class="hljs-keyword">return</span> dp[n];<br>    &#125;<br>    <br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>最后，来看下DP的降维打击：</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>    <span class="hljs-keyword">int</span> n = <span class="hljs-number">42</span>;<br>    <span class="hljs-keyword">long</span> start = System.currentTimeMillis();<br>    System.out.println(getFib(n));<br>    <span class="hljs-keyword">long</span> s1 = System.currentTimeMillis();<br>    System.out.println(<span class="hljs-string">&quot;DP:&quot;</span>+(s1-start)+<span class="hljs-string">&quot;ms&quot;</span>);<br><br>    System.out.println(getFib2(n));<br>    System.out.println(<span class="hljs-string">&quot;DiGui:&quot;</span>+(System.currentTimeMillis()-s1)+<span class="hljs-string">&quot;ms&quot;</span>);<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p><img src="H:\blog\assertPics\image-20210606203117881.png" srcset="/img/loading.gif" lazyload alt="image-20210606203117881"></p>
+<p>2、丢棋子问题</p>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                    
+                  </div>
                 
               </div>
               
@@ -251,12 +278,18 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2021/08/08/VS2017%E9%85%8D%E7%BD%AEGLUT/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">VS2017配置GLUT</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/08/08/Java%E7%AC%94%E8%AE%B0-%E5%8F%8D%E5%B0%84Reflection/">
-                        <span class="hidden-mobile">Java笔记-反射</span>
+                      <a href="/2021/08/08/Java%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Mybatis/">
+                        <span class="hidden-mobile">Mybatis</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
