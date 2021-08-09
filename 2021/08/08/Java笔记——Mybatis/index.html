@@ -13,7 +13,7 @@
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-  <meta name="theme-color" content="#D97A2E">
+  <meta name="theme-color" content="#333333">
   <meta name="description" content="">
   <meta name="author" content="Wuguo">
   <meta name="keywords" content="">
@@ -228,7 +228,7 @@
             <h1 style="display: none">Mybatis</h1>
             
             <div class="markdown-body">
-              <h1 id="Java笔记——Mybatis"><a href="#Java笔记——Mybatis" class="headerlink" title="Java笔记——Mybatis"></a>Java笔记——Mybatis</h1><h2 id="🛴我的第一个Mybatis程序"><a href="#🛴我的第一个Mybatis程序" class="headerlink" title="🛴我的第一个Mybatis程序"></a>🛴我的第一个Mybatis程序</h2><h3 id="1、创建数据库"><a href="#1、创建数据库" class="headerlink" title="1、创建数据库"></a>1、创建数据库</h3><img src="H:\blog\Java笔记——Mybatis.assets\image-20210720211142864.png" srcset="/img/loading.gif" lazyload alt="image-20210720211142864" style="zoom:67%;" />
+              <h1 id="Java笔记——Mybatis"><a href="#Java笔记——Mybatis" class="headerlink" title="Java笔记——Mybatis"></a>Java笔记——Mybatis</h1><h2 id="🛴我的第一个Mybatis程序"><a href="#🛴我的第一个Mybatis程序" class="headerlink" title="🛴我的第一个Mybatis程序"></a>🛴我的第一个Mybatis程序</h2><h3 id="1、创建数据库"><a href="#1、创建数据库" class="headerlink" title="1、创建数据库"></a>1、创建数据库</h3><img src="https://i.loli.net/2021/08/09/cUCrMwlSdqOtAGf.png" srcset="/img/loading.gif" lazyload alt="image-20210720211142864" style="zoom:67%;" />
 
 <p>这是之前我做设计模式课设中建的一张表，下面我们就来查询这这张表中所有的记录，为了方便，就只查下前3个属性吧。</p>
 <h3 id="2、创建maven项目"><a href="#2、创建maven项目" class="headerlink" title="2、创建maven项目"></a>2、创建maven项目</h3><p>​    删除src目录；</p>
@@ -262,7 +262,7 @@
 
 <h3 id="8、可能会遇到的问题"><a href="#8、可能会遇到的问题" class="headerlink" title="8、可能会遇到的问题"></a>8、可能会遇到的问题</h3><ul>
 <li><p>映射文件没有在mybatis主配置文件中注册</p>
-<p><img src="H:\blog\Java笔记——Mybatis.assets\image-20210720205949405.png" srcset="/img/loading.gif" lazyload alt="image-20210720205949405"></p>
+<p><img src="https://i.loli.net/2021/08/09/gu9qBPfUDECvYhi.png" srcset="/img/loading.gif" lazyload alt="image-20210720205949405"></p>
 </li>
 <li><p>构建项目后，找不到映射文件</p>
 <ul>
@@ -276,7 +276,7 @@
 <li>id：绑定接口中的哪个方法，方法名一定要和接口中定义的名字一样</li>
 <li>resultType：表明返回值类型</li>
 </ul>
-<p><img src="H:\blog\Java笔记——Mybatis.assets\image-20210720210326930.png" srcset="/img/loading.gif" lazyload alt="image-20210720210326930"></p>
+<p><img src="https://i.loli.net/2021/08/09/YOlcNbxG3JDHCgK.png" srcset="/img/loading.gif" lazyload alt="image-20210720210326930"></p>
 </li>
 </ul>
 <h2 id="🛫解锁其它姿势——CRUD"><a href="#🛫解锁其它姿势——CRUD" class="headerlink" title="🛫解锁其它姿势——CRUD"></a>🛫解锁其它姿势——CRUD</h2><ol>
@@ -291,7 +291,7 @@
 </ol>
 </li>
 <li><p>看看在映射文件中还可以写哪些标签</p>
-<p><img src="H:\blog\Java笔记——Mybatis.assets\image-20210721221129218.png" srcset="/img/loading.gif" lazyload alt="image-20210721221129218"></p>
+<p><img src="https://i.loli.net/2021/08/09/9ZwByJvxt6j54KM.png" srcset="/img/loading.gif" lazyload alt="image-20210721221129218"></p>
 </li>
 <li><p>增</p>
 <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 向用户表中插入一条记录</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> user:</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return</span> 新增加的记录的id</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">inserUser</span><span class="hljs-params">(User user)</span></span>;<br></code></pre></div></td></tr></table></figure>
@@ -331,23 +331,23 @@
 <h2 id="🍀环境配置"><a href="#🍀环境配置" class="headerlink" title="🍀环境配置"></a>🍀环境配置</h2><h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><p>Mybatis可以配置多个环境，但是每个SqlSessionFactory只能选择一种。</p>
 <p>默认事物管理器——JDBC</p>
 <p>连接池——POOLED</p>
-<p><img src="H:\blog\Java笔记——Mybatis.assets\image-20210725203805540.png" srcset="/img/loading.gif" lazyload alt="image-20210725203805540"></p>
+<p><img src="https://i.loli.net/2021/08/09/5SV6hzo7mEcipKv.png" srcset="/img/loading.gif" lazyload alt="image-20210725203805540"></p>
 <h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><p>可以通过properties属性来应用配置文件。</p>
 <p>这些属性都是可以替换了，例如.properties文件</p>
-<p><img src="H:\blog\Java笔记——Mybatis.assets\image-20210725205432826.png" srcset="/img/loading.gif" lazyload alt="image-20210725205432826"></p>
-<p><img src="H:\blog\Java笔记——Mybatis.assets\image-20210725205256245.png" srcset="/img/loading.gif" lazyload alt="image-20210725205256245"></p>
+<p><img src="https://i.loli.net/2021/08/09/6TaEfCX52LUOMWH.png" srcset="/img/loading.gif" lazyload alt="image-20210725205432826"></p>
+<p><img src="https://i.loli.net/2021/08/09/cDNaj4vsQF5RuT6.png" srcset="/img/loading.gif" lazyload alt="image-20210725205256245"></p>
 <p>可以通过引入外部配置文件来确定参数，也可以通过<propertiy>标签来指定。外部文件的优先级更高。</p>
-<p><img src="H:\blog\Java笔记——Mybatis.assets\image-20210725205507441.png" srcset="/img/loading.gif" lazyload alt="image-20210725205507441"></p>
+<p><img src="https://i.loli.net/2021/08/09/AEWywKmgINoXUG2.png" srcset="/img/loading.gif" lazyload alt="image-20210725205507441"></p>
 <p>配置好参数，就可以通过 <strong>${ }</strong> 的方式使用了。</p>
 <h3 id="类型别名"><a href="#类型别名" class="headerlink" title="类型别名"></a>类型别名</h3><p>为什么要取别名？——为了简洁</p>
 <p>下面这些返回值类型、参数类型写的太长了，也容易出错。</p>
-<p><img src="H:\blog\Java笔记——Mybatis.assets\image-20210725205938230.png" srcset="/img/loading.gif" lazyload alt="image-20210725205938230"></p>
+<p><img src="https://i.loli.net/2021/08/09/6VAB5ONuskPpY3o.png" srcset="/img/loading.gif" lazyload alt="image-20210725205938230"></p>
 <p>2种解决办法：</p>
 <ul>
 <li>给实体类取别名</li>
 <li>给实体类的包取别名，这里自动自动将别名取成，这个包中类名，并将首字母小写。如果需要改成别的名字，在实体类上加上注解@Alias(“xxx”)</li>
 </ul>
-<p><img src="H:\blog\Java笔记——Mybatis.assets\image-20210725210404834.png" srcset="/img/loading.gif" lazyload alt="image-20210725210404834"></p>
+<p><img src="https://i.loli.net/2021/08/09/IV76yXUGtPdMZzL.png" srcset="/img/loading.gif" lazyload alt="image-20210725210404834"></p>
 <h3 id="映射器"><a href="#映射器" class="headerlink" title="映射器"></a>映射器</h3><p>绑定映射文件。</p>
 <ul>
 <li>通过指定资源目录——推荐✨</li>
@@ -369,8 +369,8 @@
 
 
 
-<h3 id="生命周期和作用域"><a href="#生命周期和作用域" class="headerlink" title="生命周期和作用域"></a>生命周期和作用域</h3><p><img src="H:\blog\Java笔记——Mybatis.assets\image-20210725212908950.png" srcset="/img/loading.gif" lazyload alt="image-20210725212908950"></p>
-<p><img src="H:\blog\Java笔记——Mybatis.assets\image-20210725213039250.png" srcset="/img/loading.gif" lazyload alt="image-20210725213039250"></p>
+<h3 id="生命周期和作用域"><a href="#生命周期和作用域" class="headerlink" title="生命周期和作用域"></a>生命周期和作用域</h3><p><img src="https://i.loli.net/2021/08/09/DME7TjzcWqO1Xyl.png" srcset="/img/loading.gif" lazyload alt="image-20210725212908950"></p>
+<p><img src="https://i.loli.net/2021/08/09/RL5XC12pWmfh4oB.png" srcset="/img/loading.gif" lazyload alt="image-20210725213039250"></p>
 <h2 id="🎗解决属性名与字段名不一致的问题"><a href="#🎗解决属性名与字段名不一致的问题" class="headerlink" title="🎗解决属性名与字段名不一致的问题"></a>🎗解决属性名与字段名不一致的问题</h2><p>问题：当属性名与字段名不一致时，查询出来的结果会显示“null”</p>
 <p>例如，在表中密码字段是pwd，但是我在实体类中的属性写的是password.</p>
 <p>解决：</p>
@@ -394,7 +394,7 @@
 <p>现在：日志工厂</p>
 <figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">settings</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">setting</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;logImpl&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;STDOUT_LOGGING&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">settings</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 
-<p><img src="H:\blog\Java笔记——Mybatis.assets\image-20210725220515609.png" srcset="/img/loading.gif" lazyload alt="image-20210725220515609"></p>
+<p><img src="https://i.loli.net/2021/08/09/QUDinhLNYEwbRzH.png" srcset="/img/loading.gif" lazyload alt="image-20210725220515609"></p>
 <h3 id="Log4j"><a href="#Log4j" class="headerlink" title="Log4j"></a>Log4j</h3><p>也是一种日志，是Apache的一个开源项目，通过他可以控制日志的输出格式，日志的输送目的地、日志的级别等。</p>
 <p>1、导入log4j依赖</p>
 <figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- https://mvnrepository.com/artifact/log4j/log4j --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>log4j<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>log4j<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.2.17<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
@@ -409,7 +409,7 @@
 <p>3、配置mybatis</p>
 <figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">settings</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">setting</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;logImpl&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;LOG4J&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">settings</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 
-<p><img src="H:\blog\Java笔记——Mybatis.assets\image-20210726202742355.png" srcset="/img/loading.gif" lazyload alt="image-20210726202742355"></p>
+<p><img src="https://i.loli.net/2021/08/09/Gn8orupZyiDBL1I.png" srcset="/img/loading.gif" lazyload alt="image-20210726202742355"></p>
 <h2 id="📑分页"><a href="#📑分页" class="headerlink" title="📑分页"></a>📑分页</h2><p>为什么需要分页——数据太多，不方便处理</p>
 <p>之前：通过SQL中的limit</p>
 <figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> <span class="hljs-keyword">user</span> limit <span class="hljs-number">3</span><br><span class="hljs-operator">/</span><span class="hljs-operator">/</span> 查询[<span class="hljs-number">0</span>,<span class="hljs-number">3</span>)<br></code></pre></div></td></tr></table></figure>
@@ -417,7 +417,7 @@
 <p>现在：mybatis实现</p>
 <h2 id="⚙使用注解"><a href="#⚙使用注解" class="headerlink" title="⚙使用注解"></a>⚙使用注解</h2><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> org.mybatis.example;<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">BlogMapper</span> </span>&#123;<br>  <span class="hljs-meta">@Select(&quot;SELECT * FROM blog WHERE id = #&#123;id&#125;&quot;)</span><br>  <span class="hljs-function">Blog <span class="hljs-title">selectBlog</span><span class="hljs-params">(<span class="hljs-keyword">int</span> id)</span></span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
-<img src="H:\blog\Java笔记——Mybatis.assets\image-20210726211745259.png" srcset="/img/loading.gif" lazyload alt="image-20210726211745259" style="zoom:200%;" />
+<img src="https://i.loli.net/2021/08/09/oTEWCIpB9b5iAkg.png" srcset="/img/loading.gif" lazyload alt="image-20210726211745259" style="zoom:200%;" />
 
 <p>同样，使用注解这种方式，也需要在配置文件中注册mapper。</p>
 <p>当存在多个参数时，每个参数前面必须加上@param()注解</p>
@@ -435,19 +435,19 @@
 <p>但是：舍弃了一定规范，得到了一些便利。</p>
 <ol>
 <li><p>idea安装Lombok插件</p>
-<p><img src="H:\blog\Java笔记——Mybatis.assets\image-20210726214816522.png" srcset="/img/loading.gif" lazyload alt="image-20210726214816522"></p>
+<p><img src="https://i.loli.net/2021/08/09/SFiTw6y3xvMpbea.png" srcset="/img/loading.gif" lazyload alt="image-20210726214816522"></p>
 </li>
 <li><p>导入依赖</p>
 <figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.projectlombok<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>lombok<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>compile<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></div></td></tr></table></figure></li>
 <li><p>使用注解@Data</p>
-<p><img src="H:\blog\Java笔记——Mybatis.assets\image-20210726215304305.png" srcset="/img/loading.gif" lazyload alt="image-20210726215304305"></p>
+<p><img src="https://i.loli.net/2021/08/09/z1iUIylDjENPOcf.png" srcset="/img/loading.gif" lazyload alt="image-20210726215304305"></p>
 </li>
 </ol>
 <h2 id="🏐动态SQL"><a href="#🏐动态SQL" class="headerlink" title="🏐动态SQL"></a>🏐动态SQL</h2><p>what：根据不同的条件生成不同的SQL语句</p>
 <p>在实际的应用中常常通过指定多个条件来查询，例如，这里有一张购买记录表，我需要可以指定VIP的id（v_id），产品的id(p_id)以及购买时间来查询，当用户没有指定某个条件时，查询时就不对这个字段进行限制，这里就可以通过动态SQL来实现。</p>
-<p><img src="H:\blog\Java笔记——Mybatis.assets\image-20210727162040219.png" srcset="/img/loading.gif" lazyload alt="image-20210727162040219"></p>
+<p><img src="https://i.loli.net/2021/08/09/m5skxG9EKALZNhY.png" srcset="/img/loading.gif" lazyload alt="image-20210727162040219"></p>
 <p>官网中给了这样一些标签</p>
-<p><img src="H:\blog\Java笔记——Mybatis.assets\image-20210727163240019.png" srcset="/img/loading.gif" lazyload alt="image-20210727163240019"></p>
+<p><img src="https://i.loli.net/2021/08/09/cF914Ok7CAziYBK.png" srcset="/img/loading.gif" lazyload alt="image-20210727163240019"></p>
 <h3 id="if"><a href="#if" class="headerlink" title="if"></a>if</h3><ol>
 <li><p>编写接口</p>
 <p>接口中有一个Map参数，是为了指定查询条件。</p>
@@ -463,11 +463,11 @@
 <ul>
 <li><p>map:{“time”,”2021-7-1”}</p>
 <p>可以看到查询到了所有时间在2021-7-1之后的记录</p>
-<p><img src="H:\blog\Java笔记——Mybatis.assets\image-20210727162919531.png" srcset="/img/loading.gif" lazyload alt="image-20210727162919531"></p>
+<p><img src="https://i.loli.net/2021/08/09/2KlBcQfIRU7NTDn.png" srcset="/img/loading.gif" lazyload alt="image-20210727162919531"></p>
 </li>
 <li><p>map:{(“v_id”,”1”), (“p_id”,”1”)}</p>
 <p>通过指定用户id和产品id，我们查询到了一条数据</p>
-<p><img src="H:\blog\Java笔记——Mybatis.assets\image-20210727163057263.png" srcset="/img/loading.gif" lazyload alt="image-20210727163057263"></p>
+<p><img src="https://i.loli.net/2021/08/09/2DU7Jc9lQd3h1Rq.png" srcset="/img/loading.gif" lazyload alt="image-20210727163057263"></p>
 </li>
 </ul>
 <h3 id="choose、when、otherwise"><a href="#choose、when、otherwise" class="headerlink" title="choose、when、otherwise"></a>choose、when、otherwise</h3><p>有时候，我们不想使用所有的条件，而只是想从多个条件中选择一个使用。针对这种情况，MyBatis 提供了 choose 元素，它有点像 Java 中的 switch 语句。</p>
@@ -489,11 +489,11 @@
 <ul>
 <li>当map为空时，根据配置文件中写的sql，他会默认添加<otherwise>中的条件，也就是默认查询到今天的购买记录。</li>
 </ul>
-<p><img src="H:\blog\Java笔记——Mybatis.assets\image-20210727174434406.png" srcset="/img/loading.gif" lazyload alt="image-20210727174434406"></p>
+<p><img src="https://i.loli.net/2021/08/09/KcTm2r9naVN6LBG.png" srcset="/img/loading.gif" lazyload alt="image-20210727174434406"></p>
 <ul>
 <li><p>map:{(“v_id”,”1”), (“p_id”,”1”)}</p>
 <p>由于choose、when、otherwise类似于Java中的switch语句，哪怕我这里给出了两个查询条件，它根据我们写的mapper，它会优先取v_id作为条件，所以查询出了下面这些记录。</p>
-<p><img src="H:\blog\Java笔记——Mybatis.assets\image-20210727174807964.png" srcset="/img/loading.gif" lazyload alt="image-20210727174807964"></p>
+<p><img src="https://i.loli.net/2021/08/09/8ewJXuKjcIygtCr.png" srcset="/img/loading.gif" lazyload alt="image-20210727174807964"></p>
 </li>
 </ul>
 <h3 id="trim、where、set"><a href="#trim、where、set" class="headerlink" title="trim、where、set"></a>trim、where、set</h3><p><em>where</em> 元素只会在子元素返回任何内容的情况下才插入 “WHERE” 子句。而且，若子句的开头为 “AND” 或 “OR”，<em>where</em> 元素也会将它们去除。</p>
@@ -519,7 +519,7 @@
 <p>之后再次查询时会直接从缓存中获取；</p>
 <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testGetUserById</span><span class="hljs-params">()</span> </span>&#123;<br>    SqlSession sqlSession = MybatisUtils.getSqlSession();<br><br>    UserMapper mapper = sqlSession.getMapper(UserMapper.class);<br>    System.out.println(mapper.getUserById(<span class="hljs-number">1</span>));<br>    System.out.println(<span class="hljs-string">&quot;-----------------------&quot;</span>);<br>    System.out.println(mapper.getUserById(<span class="hljs-number">1</span>));<br>    sqlSession.close();<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
-<p><img src="H:\blog\Java笔记——Mybatis.assets\image-20210728220543416.png" srcset="/img/loading.gif" lazyload alt="image-20210728220543416"></p>
+<p><img src="https://i.loli.net/2021/08/09/EKrdux9ClIRZbqL.png" srcset="/img/loading.gif" lazyload alt="image-20210728220543416"></p>
 <p>从日志中，我们可以看到，虽然查询了两次，但是只有一条select语句。</p>
 <p>失效的情况：</p>
 <ul>
@@ -538,7 +538,7 @@
 <p>步骤：</p>
 <ol>
 <li><p>显式地在配置文件中，开启全局缓存</p>
-<p><img src="H:\blog\Java笔记——Mybatis.assets\image-20210729092625651.png" srcset="/img/loading.gif" lazyload alt="image-20210729092625651"></p>
+<p><img src="https://i.loli.net/2021/08/09/7acVSluyYqpvBdH.png" srcset="/img/loading.gif" lazyload alt="image-20210729092625651"></p>
 </li>
 <li><p>在当前mapper中使用二级缓存</p>
 <p>默认情况下，只启用了本地的会话缓存，它仅仅对一个会话中的数据进行缓存。 要启用全局的二级缓存，只需要在你的 SQL 映射文件中添加一行：</p>
@@ -549,7 +549,7 @@
 <li><p>测试</p>
 <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testGetUserById</span><span class="hljs-params">()</span> </span>&#123;<br>    SqlSession sqlSession = MybatisUtils.getSqlSession();<br>    UserMapper mapper = sqlSession.getMapper(UserMapper.class);<br>    System.out.println(mapper.getUserById(<span class="hljs-number">1</span>));<br>    sqlSession.close();<br><br>    SqlSession sqlSession2 = MybatisUtils.getSqlSession();<br>    UserMapper mapper2 = sqlSession2.getMapper(UserMapper.class);<br>    System.out.println(<span class="hljs-string">&quot;-----------------------&quot;</span>);<br>    System.out.println(mapper2.getUserById(<span class="hljs-number">1</span>));<br>    sqlSession2.close();<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
-<p><img src="H:\blog\Java笔记——Mybatis.assets\image-20210729093139833.png" srcset="/img/loading.gif" lazyload alt="image-20210729093139833"></p>
+<p><img src="https://i.loli.net/2021/08/09/qY3MPfXNelDj27h.png" srcset="/img/loading.gif" lazyload alt="image-20210729093139833"></p>
 <p>上面的代码中，我创建了两个sqlsession对象，并通过该对象获取中同类型的mapper，当我使用完第一个sqlsession并关闭后，再使用一个新的sqlsession时，可以看到日志中并没有再次查询数据库，说明二级缓存起作用了。</p>
 <h3 id="自定义缓存Ehcache"><a href="#自定义缓存Ehcache" class="headerlink" title="自定义缓存Ehcache"></a>自定义缓存Ehcache</h3><p>除了上述自定义缓存的方式，你也可以通过实现你自己的缓存，或为其他第三方缓存方案创建适配器，来完全覆盖缓存行为。</p>
 </li>
@@ -594,15 +594,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/08/08/Java%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Spring/">
+                      <a href="/2021/08/08/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92DP/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Spring</span>
+                        <span class="hidden-mobile">动态规划DP</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2021/08/08/Java%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Spring/">
+                        <span class="hidden-mobile">Spring</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>

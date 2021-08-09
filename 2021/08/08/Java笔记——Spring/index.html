@@ -13,7 +13,7 @@
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-  <meta name="theme-color" content="#D97A2E">
+  <meta name="theme-color" content="#333333">
   <meta name="description" content="">
   <meta name="author" content="Wuguo">
   <meta name="keywords" content="">
@@ -242,7 +242,10 @@
 <li>支持事务处理，对框架整合的支持</li>
 </ul>
 <p>Spring是一个轻量级的IOC和AOP框架</p>
-<h2 id="🍇组成"><a href="#🍇组成" class="headerlink" title="🍇组成"></a>🍇组成</h2><p><img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20210729170952116.png" srcset="/img/loading.gif" lazyload alt="image-20210729170952116"></p>
+<h2 id="🍇组成"><a href="#🍇组成" class="headerlink" title="🍇组成"></a>🍇组成</h2><img src="https://i.loli.net/2021/08/09/t14Gd7J8EHPRkli.png" srcset="/img/loading.gif" lazyload alt="image-20210729170952116" style="zoom:67%;" />
+
+
+
 <p>Spring Boot</p>
 <ul>
 <li>一个快速开发的脚手架</li>
@@ -269,7 +272,7 @@
 <li><p>测试</p>
 <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.twg.pojo;<br><br><span class="hljs-keyword">import</span> org.springframework.context.ApplicationContext;<br><span class="hljs-keyword">import</span> org.springframework.context.support.ClassPathXmlApplicationContext;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Author</span> Tang Wuguo</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Description</span> //TODO $</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Date</span> $ 2021-7-29$</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestUser</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        ApplicationContext context = <span class="hljs-keyword">new</span> ClassPathXmlApplicationContext(<span class="hljs-string">&quot;beans.xml&quot;</span>);<br>         User user = (User) context.getBean(<span class="hljs-string">&quot;user&quot;</span>);<br>        System.out.println(user);<br>    &#125;<br>&#125;<br><br></code></pre></div></td></tr></table></figure></li>
 </ol>
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20210729211200259.png" srcset="/img/loading.gif" lazyload alt="image-20210729211200259" style="zoom:67%;" />
+<img src="https://i.loli.net/2021/08/09/6SQDGKPyfnMZI1J.png" srcset="/img/loading.gif" lazyload alt="image-20210729211200259" style="zoom:67%;" />
 
 <p>可以看到，通过Spring创建user对象是，通过无参构造来创建的（这是Spring中IOC创建对象的默认方式），而在配置文件中给name属性赋值是通过setter方法实现的。</p>
 <h3 id="IOC创建对象的方式"><a href="#IOC创建对象的方式" class="headerlink" title="IOC创建对象的方式"></a>IOC创建对象的方式</h3><ol>
@@ -325,13 +328,13 @@
 </ol>
 <div class="hljs code-wrapper"><pre><code> <figure class="highlight xml"><table><tr><td class="gutter hljs"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;user3&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.twg.pojo.User&quot;</span> <span class="hljs-attr">c:name</span>=<span class="hljs-string">&quot;twg_by_user3&quot;</span>/&gt;</span><br></code></pre></div></td></tr></table></figure>
 </code></pre>
-<h2 id="🌽Bean作用域"><a href="#🌽Bean作用域" class="headerlink" title="🌽Bean作用域"></a>🌽Bean作用域</h2><p><img src="H:\blog\Java笔记——Spring.assets\image-20210731142006189.png" srcset="/img/loading.gif" lazyload alt="image-20210731142006189"></p>
+<h2 id="🌽Bean作用域"><a href="#🌽Bean作用域" class="headerlink" title="🌽Bean作用域"></a>🌽Bean作用域</h2><p><img src="https://i.loli.net/2021/08/09/gbWjt6ra4lOmivQ.png" srcset="/img/loading.gif" lazyload alt="image-20210731142006189"></p>
 <ol>
 <li><p>singleton</p>
-<p><img src="H:\blog\Java笔记——Spring.assets\image-20210731142045563.png" srcset="/img/loading.gif" lazyload alt="image-20210731142045563"></p>
+<p><img src="https://i.loli.net/2021/08/09/W8SraumflGoKRXb.png" srcset="/img/loading.gif" lazyload alt="image-20210731142045563"></p>
 <figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;accountService&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.something.DefaultAccountService&quot;</span>/&gt;</span><br><br><span class="hljs-comment">&lt;!-- the following is equivalent, though redundant (singleton scope is the default) --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;accountService&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.something.DefaultAccountService&quot;</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">&quot;singleton&quot;</span>/&gt;</span><br></code></pre></div></td></tr></table></figure></li>
 <li><p>prototype</p>
-<p><img src="H:\blog\Java笔记——Spring.assets\image-20210731142127504.png" srcset="/img/loading.gif" lazyload alt="image-20210731142127504"></p>
+<p><img src="https://i.loli.net/2021/08/09/K1lxH7UmLXuzdJS.png" srcset="/img/loading.gif" lazyload alt="image-20210731142127504"></p>
 <figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;accountService&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.something.DefaultAccountService&quot;</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">&quot;prototype&quot;</span>/&gt;</span><br></code></pre></div></td></tr></table></figure></li>
 </ol>
 <h2 id="🧇自动装配Autowired"><a href="#🧇自动装配Autowired" class="headerlink" title="🧇自动装配Autowired"></a>🧇自动装配Autowired</h2><p>Spring中的三种装配方式：</p>
@@ -362,7 +365,7 @@
 <h2 id="🧀使用注解开发"><a href="#🧀使用注解开发" class="headerlink" title="🧀使用注解开发"></a>🧀使用注解开发</h2><p>使用之前：</p>
 <ul>
 <li><p>导入AOP依赖</p>
-<img src="H:\blog\Java笔记——Spring.assets\image-20210731164619997.png" srcset="/img/loading.gif" lazyload alt="image-20210731164619997" style="zoom:80%;" /></li>
+<img src="https://i.loli.net/2021/08/09/UabQiekZd7GwrvV.png" srcset="/img/loading.gif" lazyload alt="image-20210731164619997" style="zoom:80%;" /></li>
 <li><p>导入contex约束，增加注解支持</p>
 <figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">beans</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/beans&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">xmlns:context</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/context&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/beans</span></span><br><span class="hljs-string"><span class="hljs-tag">        https://www.springframework.org/schema/beans/spring-beans.xsd</span></span><br><span class="hljs-string"><span class="hljs-tag">        http://www.springframework.org/schema/context</span></span><br><span class="hljs-string"><span class="hljs-tag">        https://www.springframework.org/schema/context/spring-context.xsd&quot;</span>&gt;</span><br>    <br>	&lt;--!指定要扫描的包，这个包下的注解就会生效--&gt;<br>    <span class="hljs-tag">&lt;<span class="hljs-name">context:component-scan</span> <span class="hljs-attr">base-package</span>=<span class="hljs-string">&quot;com.twg.pojo&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">context:annotation-config</span>/&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">beans</span>&gt;</span><br></code></pre></div></td></tr></table></figure></li>
 </ul>
@@ -432,7 +435,7 @@
 <li>高扩展性：可以扩展多个实现了抽象角色的类，这样，哪怕代理类不做修改仍然可以继续使用。还可以通过给代理类增加额外的功能来扩展委托类的功能，这样做我们只需要修改代理类而不需要再修改委托类，同样符合开闭原则。</li>
 <li>智能性：动态代理的智能化</li>
 </ul>
-<img src="H:\blog\Java笔记——Spring.assets\image-20210731212052039.png" srcset="/img/loading.gif" lazyload alt="image-20210731212052039" style="zoom: 80%;" />
+<img src="https://i.loli.net/2021/08/09/nBKtea1hlFiPb2E.png" srcset="/img/loading.gif" lazyload alt="image-20210731212052039" style="zoom: 80%;" />
 
 
 
@@ -457,7 +460,7 @@
 <li><p>测试</p>
 <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Client</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        ApplicationContext context = <span class="hljs-keyword">new</span> ClassPathXmlApplicationContext(<span class="hljs-string">&quot;applicationContext.xml&quot;</span>);<br>        <span class="hljs-comment">//        动态代理的是接口！</span><br>        UserService bean = (UserService)context.getBean(<span class="hljs-string">&quot;userService&quot;</span>);<br>        bean.add();<br><br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
 
-<img src="H:\blog\Java笔记——Spring.assets\image-20210802091936937.png" srcset="/img/loading.gif" lazyload alt="image-20210802091936937" style="zoom:67%;" /></li>
+<img src="https://i.loli.net/2021/08/09/8CUPbBGKcgjOdze.png" srcset="/img/loading.gif" lazyload alt="image-20210802091936937" style="zoom:67%;" /></li>
 </ol>
 </li>
 <li><p><strong>注解实现</strong>——相当于对方法2的简化</p>
@@ -467,7 +470,7 @@
 <li><p>测试</p>
 </li>
 </ol>
-<img src="H:\blog\Java笔记——Spring.assets\image-20210802094214172.png" srcset="/img/loading.gif" lazyload alt="image-20210802094214172" style="zoom:67%;" /></li>
+<img src="https://i.loli.net/2021/08/09/zPTaXlsOCZH1c87.png" srcset="/img/loading.gif" lazyload alt="image-20210802094214172" style="zoom:67%;" /></li>
 </ol>
 <h2 id="🍀Mybatis"><a href="#🍀Mybatis" class="headerlink" title="🍀Mybatis"></a>🍀Mybatis</h2><ol>
 <li><p><strong>导入jar包</strong></p>
@@ -486,7 +489,7 @@
 <li><p>测试</p>
 </li>
 </ol>
-<img src="H:\blog\Java笔记——Spring.assets\image-20210802103559615.png" srcset="/img/loading.gif" lazyload alt="image-20210802103559615" style="zoom:67%;" /></li>
+<img src="https://i.loli.net/2021/08/09/Up3SjnYWoVO5Mgf.png" srcset="/img/loading.gif" lazyload alt="image-20210802103559615" style="zoom:67%;" /></li>
 </ol>
 <h2 id="🥨整合Mybatis"><a href="#🥨整合Mybatis" class="headerlink" title="🥨整合Mybatis"></a>🥨整合Mybatis</h2><ol>
 <li><p>配置</p>
@@ -496,7 +499,7 @@
 <li><p>测试</p>
 <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testMybatisSpring</span><span class="hljs-params">()</span></span>&#123;<br>    ApplicationContext context = <span class="hljs-keyword">new</span> ClassPathXmlApplicationContext(<span class="hljs-string">&quot;spring-dao.xml&quot;</span>);<br>    VipMapper vipMapper = context.getBean(<span class="hljs-string">&quot;vipMapper&quot;</span>, VipMapper.class);<br>    List&lt;Vip&gt; vips = vipMapper.selectAll();<br>    <span class="hljs-keyword">for</span> (Vip vip : vips) &#123;<br>        System.out.println(vip);<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
 
-<p><img src="H:\blog\Java笔记——Spring.assets\image-20210802115620873.png" srcset="/img/loading.gif" lazyload alt="image-20210802115620873"></p>
+<p><img src="https://i.loli.net/2021/08/09/1h9TDscexSitCNX.png" srcset="/img/loading.gif" lazyload alt="image-20210802115620873"></p>
 </li>
 </ol>
 <p>方式二：</p>
@@ -547,21 +550,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/08/08/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92DP/">
+                      <a href="/2021/08/08/Java%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Mybatis/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">动态规划DP</span>
+                        <span class="hidden-mobile">Mybatis</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
-                    
-                      <a href="/2021/08/08/Java%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94Mybatis/">
-                        <span class="hidden-mobile">Mybatis</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
                     
                   </article>
                 </div>
