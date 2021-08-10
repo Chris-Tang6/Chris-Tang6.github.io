@@ -18,7 +18,7 @@
   <meta name="author" content="Wuguo">
   <meta name="keywords" content="">
   
-  <title>动态规划DP - 小武的Blog</title>
+  <title>爬取B站冰冰❤的视频弹幕 - 小武的Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="动态规划DP">
+            <span class="h2" id="subtitle" title="爬取B站冰冰❤的视频弹幕">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-08-08 10:00" pubdate>
-        2021年8月8日 上午
+      <time datetime="2021-08-09 10:00" pubdate>
+        2021年8月9日 上午
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      514 字
+      386 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      5
        分钟
     </span>
   
@@ -225,24 +225,38 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">动态规划DP</h1>
+            <h1 style="display: none">爬取B站冰冰❤的视频弹幕</h1>
             
             <div class="markdown-body">
-              <h1 id="动态规划DP"><a href="#动态规划DP" class="headerlink" title="动态规划DP"></a>动态规划DP</h1><p>1、求斐波那契数</p>
-<p>Fibonacci以如下被以递推的方法定义：F(0)=0，F(1)=1, F(n)=F(n - 1)+F(n - 2)（n ≥ 2，n ∈ N*），简单的理解就是从n=2开始，每一项都等于前两项的和。<br>首先使用常规的方法求斐波那契数，也就是根据其定义，使用递归</p>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getFib2</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span></span>&#123;<br>    <span class="hljs-keyword">if</span>(n==<span class="hljs-number">0</span>)&#123;<br>    	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>	&#125;         <br>    <span class="hljs-keyword">if</span>(n&lt;=<span class="hljs-number">2</span>)&#123;<br>    	<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>    &#125;<br>	<span class="hljs-keyword">return</span> getFib2(n-<span class="hljs-number">1</span>)+getFib2(n-<span class="hljs-number">2</span>);<br>&#125;<br></code></pre></div></td></tr></table></figure>
+              <h1 id="爬取B站视频弹幕"><a href="#爬取B站视频弹幕" class="headerlink" title="爬取B站视频弹幕"></a>爬取B站视频弹幕</h1><p>参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/becks/p/14540355.html">https://www.cnblogs.com/becks/p/14540355.html</a></p>
+<h2 id="0-爬虫之前"><a href="#0-爬虫之前" class="headerlink" title="0.爬虫之前"></a>0.爬虫之前</h2><p>安装BeautifulSoup4；</p>
+<p>B站弹幕接口👇，中间的xxx，是视频的一个id号，就是后面会提到的<strong>cid</strong>。</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">http:<span class="hljs-comment">//comment.bilibili.com/xxx.xml</span><br></code></pre></div></td></tr></table></figure>
 
-<p>递归方法往往耗时，消耗内存。而且上面的方法有很多重复计算。例如，我在计算Fib(5)时，需要计算Fib(4)+Fib(3)；由于n=4,n=3均不是递归的终止条件，所以他们都需要再递归下去。先看Fib(4)：</p>
-<p>由于Fib(4)由于没有到达递归的终止条件，仍然需要递归计算：Fib(3)+Fib(2)，然后Fib(3)再递归一次才终于计算出Fib(4)；</p>
-<p>同理，Fib(3)也是这样算的。</p>
-<p>不知道你有没有发现，在求Fib(5)时，我们就计算了两次Fib(3)，这就发生了多余的计算。</p>
-<p>下面的就用DP来优化下。具体的细节也就是，使用一个输入来存储已经计算过的结果，比如上面的Fib(3)，当我们后面再次需要这个结果时，直接查询这个数组即可，这可比再算一遍要划得来。</p>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <br>	<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> []dp =<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">100</span>];	<span class="hljs-comment">//定义存储表</span><br>	<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getFib</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span></span>&#123;<br>        <span class="hljs-keyword">if</span>(n==<span class="hljs-number">0</span>)&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        &#125;<br>        <span class="hljs-keyword">if</span>(n&lt;=<span class="hljs-number">2</span>)&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>        &#125;<br>        <span class="hljs-keyword">if</span>(dp[n]!=<span class="hljs-number">0</span>)&#123;			<span class="hljs-comment">//查表</span><br>            <span class="hljs-keyword">return</span> dp[n];		<br>        &#125;<br>        <span class="hljs-comment">//当查询表后，发现没有计算过时，再使用递归来算，并存到表中</span><br>        dp[n]=getFib(n-<span class="hljs-number">1</span>)+getFib(n-<span class="hljs-number">2</span>);<br>        <span class="hljs-keyword">return</span> dp[n];<br>    &#125;<br>    <br>&#125;<br></code></pre></div></td></tr></table></figure>
 
-<p>最后，来看下DP的降维打击：</p>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>    <span class="hljs-keyword">int</span> n = <span class="hljs-number">42</span>;<br>    <span class="hljs-keyword">long</span> start = System.currentTimeMillis();<br>    System.out.println(getFib(n));<br>    <span class="hljs-keyword">long</span> s1 = System.currentTimeMillis();<br>    System.out.println(<span class="hljs-string">&quot;DP:&quot;</span>+(s1-start)+<span class="hljs-string">&quot;ms&quot;</span>);<br><br>    System.out.println(getFib2(n));<br>    System.out.println(<span class="hljs-string">&quot;DiGui:&quot;</span>+(System.currentTimeMillis()-s1)+<span class="hljs-string">&quot;ms&quot;</span>);<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
-<p><img src="https://i.loli.net/2021/08/09/WitymMFr2YBndTN.png" srcset="/img/loading.gif" lazyload alt="image-20210606203117881"></p>
+<h2 id="1-获取cid"><a href="#1-获取cid" class="headerlink" title="1.获取cid"></a>1.获取cid</h2><p>我们要爬取的弹幕是冰冰的第一期视频，首先打开要爬取的视频并点击播放，打开浏览器的调试器。按照下面的步骤获取cid。</p>
+<p><img src="https://i.loli.net/2021/08/09/oDdXOej34wFsRtY.png" srcset="/img/loading.gif" lazyload alt="image-20210410210826215"></p>
+<h2 id="2-进入弹幕接口网址"><a href="#2-进入弹幕接口网址" class="headerlink" title="2.进入弹幕接口网址"></a>2.进入弹幕接口网址</h2><p>我们现在已经知道，冰冰第一期视频的<a target="_blank" rel="noopener" href="http://comment.bilibili.com/283851334.xml">弹幕网址</a>了。</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">http:<span class="hljs-comment">//comment.bilibili.com/283851334.xml</span><br></code></pre></div></td></tr></table></figure>
+
+<p>我们进入这个网页，查看网页的结构，可以从图中看到，弹幕内容存放在d标签中，这样就确定了爬虫用到的筛选条件：</p>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">comments = find_all(<span class="hljs-string">&#x27;d&#x27;</span>)<br></code></pre></div></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2021/08/09/p6UPq3Vlymsg87f.png" srcset="/img/loading.gif" lazyload alt="QQ截图20210410211221"></p>
+<h2 id="3-编码"><a href="#3-编码" class="headerlink" title="3.编码"></a>3.编码</h2><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">@encoding   :       utf-8</span><br><span class="hljs-string">@Author     :       Tang</span><br><span class="hljs-string">@E-mail     :       1009592703@qq.com</span><br><span class="hljs-string">@File       :       t5_1beautifulsoup.py</span><br><span class="hljs-string">@Description:       use BeautifulSoup to crawl web pages</span><br><span class="hljs-string">@CreateTime :       2021/4/10    14:00</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup<br><br><span class="hljs-keyword">global</span> comments<br>comments = <span class="hljs-string">&#x27;&#x27;</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_reviews</span>(<span class="hljs-params">html</span>):</span><br>    html_doc = <span class="hljs-built_in">str</span>(html, <span class="hljs-string">&#x27;utf-8&#x27;</span>)<br>    bf = BeautifulSoup(html_doc, <span class="hljs-string">&#x27;html.parser&#x27;</span>)<br>    comment = bf.find_all(<span class="hljs-string">&#x27;d&#x27;</span>)<br>    i = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> short <span class="hljs-keyword">in</span> comment:<br>        <span class="hljs-keyword">global</span> comments<br>        comments += <span class="hljs-built_in">str</span>(i + <span class="hljs-number">1</span>) + <span class="hljs-string">&#x27; : &#x27;</span> + short.text + <span class="hljs-string">&#x27;\n&#x27;</span><br>        i = i + <span class="hljs-number">1</span><br>    <span class="hljs-keyword">return</span> comments<br><br><br>url = <span class="hljs-string">&quot;http://comment.bilibili.com/283851334.xml&quot;</span><br>herders = &#123;<br>    <span class="hljs-string">&#x27;User-Agent&#x27;</span>: <span class="hljs-string">&#x27;Mozilla/5.0 (Windows NT 6.1;WOW64) AppleWebKit/537.36 (KHTML,like GeCKO) Chrome/45.0.2454.85 Safari/537.36 115Broswer/6.0.3&#x27;</span>,<br>    <span class="hljs-string">&#x27;Referer&#x27;</span>: <span class="hljs-string">&#x27;https://movie.douban.com/&#x27;</span>,<br>    <span class="hljs-string">&#x27;Connection&#x27;</span>: <span class="hljs-string">&#x27;keep-alive&#x27;</span>&#125;<br>response = requests.get(url, headers=herders)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;返回状态码：%s&#x27;</span> % response.status_code)<br>get_reviews(response.content)<br><span class="hljs-built_in">print</span>(comments)<br></code></pre></div></td></tr></table></figure>
+
+<img src="https://i.loli.net/2021/08/09/FWoeN76nt45JGcB.png" srcset="/img/loading.gif" lazyload alt="image-20210410221020385" style="zoom:80%;" />
+
+
+
+<h2 id="4-词云"><a href="#4-词云" class="headerlink" title="4.词云"></a>4.词云</h2><p><img src="https://i.loli.net/2021/08/10/1Mo4datEzTiCQ7G.png" srcset="/img/loading.gif" lazyload alt="image-20210810173952268"></p>
+<p><img src="https://i.loli.net/2021/08/10/cFsTEuhI1SbtzHR.png" srcset="/img/loading.gif" lazyload alt="image-20210810173752892"></p>
+<p><img src="https://i.loli.net/2021/08/10/IfwcAy5krxOopGT.png" srcset="/img/loading.gif" lazyload alt="image-20210810173806001"></p>
+<p>5.简单的情感分析</p>
+<p><img src="https://i.loli.net/2021/08/10/MpkijGZ9AQLyIJe.png" srcset="/img/loading.gif" lazyload alt="image-20210810173841453"></p>
+<img src="https://i.loli.net/2021/08/10/n43b8Xd6WRwh5Ba.png" srcset="/img/loading.gif" lazyload alt="image-20210810173853635" style="zoom: 80%;" />
+
 
             </div>
             <hr>
@@ -260,7 +274,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                      <a class="hover-with-bg" href="/tags/Python/">Python</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%88%AC%E8%99%AB/">爬虫</a>
                     
                   </div>
                 
@@ -277,9 +293,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/08/08/VS2017%E9%85%8D%E7%BD%AEGLUT/">
+                      <a href="/2021/08/09/%E5%A4%8D%E5%90%88%E6%B7%B7%E6%B2%8C%E5%8A%A0%E8%A7%A3%E5%AF%86%E7%AE%97%E6%B3%95%E2%80%94%E2%80%94Python%E5%AE%9E%E7%8E%B0/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">VS2017配置GLUT</span>
+                        <span class="hidden-mobile">复合混沌加解密算法</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -287,8 +303,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/08/08/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
-                        <span class="hidden-mobile">排序算法</span>
+                      <a href="/2021/08/08/hello-world/">
+                        <span class="hidden-mobile">打个招呼吧！</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
