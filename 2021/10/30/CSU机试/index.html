@@ -1,0 +1,521 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#c9d6de">
+  <meta name="description" content="">
+  <meta name="author" content="Wuguo">
+  <meta name="keywords" content="">
+  
+  <title>CSU机试 - 小武的Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#E63D43","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>小武的Blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="CSU机试">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-10-30 10:00" pubdate>
+        2021年10月30日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      27
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">CSU机试</h1>
+            
+            <div class="markdown-body">
+              <h1 id="CSU机试"><a href="#CSU机试" class="headerlink" title="CSU机试"></a>CSU机试</h1><h2 id="2013"><a href="#2013" class="headerlink" title="2013"></a>2013</h2><h3 id="回文串问题"><a href="#回文串问题" class="headerlink" title="回文串问题"></a>回文串问题</h3><figure class="highlight coffeescript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs coffeescript">回文串问题<br>时间限制: <span class="hljs-number">1</span> Sec  内存限制: <span class="hljs-number">128</span> MB<br>- 题目描述<br>“回文串”是一个正读和反读都一样的字符串，字符串由数字和小写字母组成，比如“level”或者“abcdcba”等等就是回文串。请写一个程序判断读入的字符串是否是“回文”。<br>- 输入<br>输入包含多个测试实例，每一行对应一个字符串，串长最多<span class="hljs-number">100</span>字母。<br>- 输出<br>对每个字符串，输出它是第几个，如第一个输出为<span class="hljs-string">&quot;case1:&quot;</span>；如果一个字符串是回文串，则输出<span class="hljs-string">&quot;yes&quot;</span>,否则输出<span class="hljs-string">&quot;no&quot;</span>，在<span class="hljs-literal">yes</span>/<span class="hljs-literal">no</span>之前用一个空格。<br>- 样例输入<br>level<br>abcde<br>noon<br>haha<br>- 样例输出<br>case1: <span class="hljs-literal">yes</span><br>case2: <span class="hljs-literal">no</span><br>case3: <span class="hljs-literal">yes</span><br>case4: <span class="hljs-literal">no</span><br>提示<br>请使用scanf进行输入。<br></code></pre></div></td></tr></table></figure>
+
+
+
+<p>这道题还是很简单的，主要是通过判断前后两个对应位置的字符是否相等，如果不相等直接判断不是回文串，如果一直匹配成功，说明是回文串。</p>
+<p>前后位置的下标？    </p>
+<p>​    假如前面的位置为0，那么它对应要匹配的位置是<strong>len-1</strong>，len为字符串长度    </p>
+<p>​    前面的位置为i，那么它对应的位置是<strong>len-1-i</strong></p>
+<p>注意边界值：</p>
+<p>​    只需要匹配到中间的位置即可，也就是<strong>i</strong>的范围应该是**[0,len/2)**</p>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    string s;<br>    <span class="hljs-keyword">int</span> case_num = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span> (cin &gt;&gt; s)<br>    &#123;<br>        <span class="hljs-keyword">int</span> len = s.<span class="hljs-built_in">length</span>();<br>        <span class="hljs-keyword">bool</span> res = <span class="hljs-literal">true</span>;<br><br>        <span class="hljs-comment">// 检查是否时回文串</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; len / <span class="hljs-number">2</span>; i++)<br>        &#123;<br>            <span class="hljs-keyword">if</span> (s[i] != s[len - <span class="hljs-number">1</span> - i])<br>            &#123;<br>                res = <span class="hljs-literal">false</span>;<br>                <span class="hljs-keyword">break</span>;<br>            &#125;<br>        &#125;<br><br>        <span class="hljs-comment">// 输出结果</span><br>        <span class="hljs-keyword">if</span> (res)<br>            cout &lt;&lt; <span class="hljs-string">&quot;case&quot;</span> &lt;&lt; case_num &lt;&lt; <span class="hljs-string">&quot;: yes&quot;</span> &lt;&lt; endl;<br>        <span class="hljs-keyword">else</span><br>            cout &lt;&lt; <span class="hljs-string">&quot;case&quot;</span> &lt;&lt; case_num &lt;&lt; <span class="hljs-string">&quot;: no&quot;</span> &lt;&lt; endl;<br>        case_num++;<br>    &#125;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+
+<h3 id="水仙花数"><a href="#水仙花数" class="headerlink" title="水仙花数"></a>水仙花数</h3><figure class="highlight asciidoc"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs asciidoc">1001: 水仙花数 时间限制: 1 Sec  内存限制: 128 MB<br><span class="hljs-bullet">- </span>题目描述<br>春天是鲜花灿烂的季节，水仙花就是其中最迷人的代表，数学上有个水仙花数，他是这样定义的：“水仙花数”是指一个三位数，<br>它的各位数字的立方和等于其本身，比如：153=1^3<span class="hljs-code">+5^3+</span>3^3。现在要求输出所有在m和n范围内的水仙花数。<br><span class="hljs-bullet">- </span>输入<br>输入数据有多组，每组占一行，包括两个整数m和n（100&lt;=m&lt;=n&lt;=999）。<br><span class="hljs-bullet">- </span>输出<br>对于每个测试实例，要求输出所有在给定范围内的水仙花数，就是说，输出的水仙花数必须大于等于m,并且小于等于n，<br>如果有多个，则要求从小到大排列在一行内输出，之间用一个空格隔开(注意每组输出的最后一个数之后不要加空格);<br>如果给定的范围内不存在水仙花数，则输出no;每个测试实例的输出占一行。<br><span class="hljs-bullet">- </span>样例输入<br>100 120<br>300 380<br><span class="hljs-bullet">- </span>样例输出<br>no<br>370 371<br></code></pre></div></td></tr></table></figure>
+
+
+
+<p>注意题目中的一些条件：</p>
+<p>我们要求解的水仙花数范围是**[m,n]**，闭区间</p>
+<p>如果有多个，则要求从小到大排列在一行内输出，之间用一个空格隔开，最后那个没有空格；</p>
+<p>☢☢如果有多解，一般的处理方式是<strong>对第一个解输出特殊处理</strong>，后面的输出就是都是一个空格再接着一个解</p>
+<p><strong>基本思路</strong>：对给定的范围内的数，进行穷举，判断是否符合是个水仙数</p>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">getShuiNum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a)</span> <span class="hljs-comment">// 用来计算a的三位数字的三次方之和</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> ret = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">while</span> (a)<br>    &#123;<br>        <span class="hljs-keyword">int</span> t = a % <span class="hljs-number">10</span>;<br>        a /= <span class="hljs-number">10</span>;<br>        ret = ret + t * t * t;<br>    &#125;<br>    <span class="hljs-keyword">return</span> ret;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> m, n;<br>    <span class="hljs-keyword">while</span> (cin &gt;&gt; m &gt;&gt; n)<br>    &#123;<br>        <span class="hljs-keyword">bool</span> isFirst = <span class="hljs-literal">true</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = m; i &lt;= n; i++)<br>        &#123;<br>            <span class="hljs-keyword">if</span> (i == <span class="hljs-built_in">getShuiNum</span>(i))<br>            &#123;<br>                <span class="hljs-keyword">if</span> (isFirst)<br>                &#123;<br>                    isFirst = <span class="hljs-literal">false</span>;<br>                    cout &lt;&lt; i;<br>                &#125;<br>                <span class="hljs-keyword">else</span><br>                &#123;<br>                    cout &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; i;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (isFirst)  <span class="hljs-comment">// 如果一个解都没有，就要输出&quot;no&quot;</span><br>            cout &lt;&lt; <span class="hljs-string">&quot;no&quot;</span> &lt;&lt; endl;<br>        <span class="hljs-keyword">else</span><br>            cout &lt;&lt; endl;<br>    &#125;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+
+<h3 id="安全密码"><a href="#安全密码" class="headerlink" title="安全密码"></a>安全密码</h3><figure class="highlight gams"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs gams"><span class="hljs-number">1002</span>: 安全密码<br>- 题目描述<br>网络上各类交易活动越来越普及，为了能够安安心心地上网，经常需要设置一个安全的密码。一般来说一个比较安全的密码至少应该满足下面两个条件：<br>(<span class="hljs-number">1</span>)密码长度大于等于<span class="hljs-number">8</span>。<br>(<span class="hljs-number">2</span>)密码中的字符应该来自下面“字符类别”中四组中的至少三组。<br>这四个字符类别分别为：<br>(<span class="hljs-number">1</span>)大写字母：A,B,C...Z;<br>(<span class="hljs-number">2</span>)小写字母：a,b,c...z;<br>(<span class="hljs-number">3</span>)数字：<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2.</span>.<span class="hljs-number">.9</span>;<br>(<span class="hljs-number">4</span>)特殊符号：~,!,@,#,<span class="hljs-symbol">$</span>,%,^;<br>给你一个密码，你的任务就是判断它是不是一个安全的密码。<br>- 输入<br>输入数据有多组，每组占一行，每行一个密码（长度最大可能为<span class="hljs-number">50</span>），密码仅包括上面的四类字符。<br>- 输出<br>对于每个测试实例，判断这个密码是不是一个安全的密码，是的话输出<span class="hljs-keyword">YES</span>，否则输出<span class="hljs-keyword">NO</span>。<br>- 样例输入<br>a1b2c3d4<br>Linle@ACM<br>^~^@^@!%<br>- 样例输出<br><span class="hljs-keyword">NO</span><br><span class="hljs-keyword">YES</span><br><span class="hljs-keyword">NO</span><br></code></pre></div></td></tr></table></figure>
+
+
+
+<p><strong>思路</strong>：根据给定的密码串，判断其中的字符是否存在4类字符中。</p>
+<p>☢<strong>注意</strong>☢</p>
+<ul>
+<li><p>不要忽视了题目的条件：是否是安全密码需要满足两个条件，第一个是<strong>长度至少有8位</strong></p>
+</li>
+<li><p>其次才是判断密码中的<strong>字符类型至少有3钟</strong></p>
+</li>
+</ul>
+<p>所以前面四个函数就是分别用来判断密码中某个字符的类型：</p>
+<ul>
+<li>bool isNumber(char a)    //判断是否是数字</li>
+<li>bool isUpperChar(char a)    //判断是否是大写字母</li>
+<li>bool isLowerChar(char a)    //判断是否是小写字母</li>
+<li>bool isSpecialChar(char a)    //判断是否是特殊字符</li>
+<li>在这里值得注意，判断数字、字母时<strong>并不需要</strong>记住asc码值：可以用：<strong>int t = a-‘0’;</strong> 这样的方法来<strong>计算距离字符’0’的偏移值</strong>，看这个<strong>偏移值</strong>是否在**[0,9]** 的范围内</li>
+<li>其次注意这些范围的<strong>边界</strong>，我开始就犯了个错误：判断是否是字母的偏移值范围应该是**[0,25]**，我的错误的写成了t&lt;=26;</li>
+</ul>
+<p>可以说写完这四类判断应该够了，这里我还进行了下<strong>小优化</strong>：</p>
+<ul>
+<li>例如对于密码的第一位我判断出来是数字，那我后面就<strong>不需要重复判断</strong>了</li>
+<li>只需要判断它满足过有数字，而不需要重复的判断</li>
+</ul>
+<p>用一个bool数组<strong>tag</strong>存储密码满足哪几种类型，最后只要遍历下这个tag数组就知道是否符合密码要求；</p>
+<p>为了防止重复判断，浪费性能，我在每个判断条件中加了：**!tag[0]** 这种条件，如果<strong>tag[0]<strong>为true，那么取非后就是假，同时&amp;&amp;具有</strong>短路现象</strong>，也就是当&amp;&amp;连接的第一个条件是false的时候，第二个条件就不会去判断了，所以就避免了再次的判断是否是存在数字类型的密码。（因为不管第二个的结果是什么，只要第一个条件为false，我就能断定这个与运算的结果是false）</p>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isNumber</span><span class="hljs-params">(<span class="hljs-keyword">char</span> a)</span>	<span class="hljs-comment">//判断是否是数字</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> t = a - <span class="hljs-string">&#x27;0&#x27;</span>;<br>    <span class="hljs-keyword">return</span> t &gt;= <span class="hljs-number">0</span> &amp;&amp; t &lt;= <span class="hljs-number">9</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isUpperChar</span><span class="hljs-params">(<span class="hljs-keyword">char</span> a)</span>	<span class="hljs-comment">//判断是否是大写字母</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> t = a - <span class="hljs-string">&#x27;A&#x27;</span>;<br>    <span class="hljs-keyword">return</span> t &gt;= <span class="hljs-number">0</span> &amp;&amp; t &lt; <span class="hljs-number">26</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isLowerChar</span><span class="hljs-params">(<span class="hljs-keyword">char</span> a)</span>	<span class="hljs-comment">//判断是否是小写字母</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> t = a - <span class="hljs-string">&#x27;a&#x27;</span>;<br>    <span class="hljs-keyword">return</span> t &gt;= <span class="hljs-number">0</span> &amp;&amp; t &lt; <span class="hljs-number">26</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isSpecialChar</span><span class="hljs-params">(<span class="hljs-keyword">char</span> a)</span>	<span class="hljs-comment">//判断是否是特殊字符</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">return</span> a == <span class="hljs-string">&#x27;~&#x27;</span> || a == <span class="hljs-string">&#x27;!&#x27;</span> || a == <span class="hljs-string">&#x27;@&#x27;</span> || a == <span class="hljs-string">&#x27;#&#x27;</span> || a == <span class="hljs-string">&#x27;$&#x27;</span> || a == <span class="hljs-string">&#x27;%&#x27;</span> || a == <span class="hljs-string">&#x27;^&#x27;</span>;<br>&#125;<br><br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    string s;<br>    <span class="hljs-keyword">while</span> (cin &gt;&gt; s)<br>    &#123;<br>        <span class="hljs-keyword">if</span>(s.<span class="hljs-built_in">length</span>()&lt;<span class="hljs-number">8</span>)	<span class="hljs-comment">//密码长度不足8位，直接不满足</span><br>        &#123;<br>            cout&lt;&lt;<span class="hljs-string">&quot;NO&quot;</span>&lt;&lt;endl;<br>            <span class="hljs-keyword">break</span>;<br>        &#125;<br>        <br>        <span class="hljs-keyword">bool</span> tag[<span class="hljs-number">4</span>] = &#123;<span class="hljs-literal">false</span>&#125;;<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; s.<span class="hljs-built_in">length</span>(); i++)<br>        &#123;<br>            <span class="hljs-keyword">char</span> temp = s[i];<br>            <span class="hljs-keyword">if</span> (!tag[<span class="hljs-number">0</span>] &amp;&amp; <span class="hljs-built_in">isNumber</span>(s[i]))<br>            &#123;<br>                tag[<span class="hljs-number">0</span>] = <span class="hljs-literal">true</span>;<br>            &#125;<br>            <span class="hljs-keyword">if</span> (!tag[<span class="hljs-number">1</span>] &amp;&amp; <span class="hljs-built_in">isUpperChar</span>(s[i]))<br>            &#123;<br>                tag[<span class="hljs-number">1</span>] = <span class="hljs-literal">true</span>;<br>            &#125;<br>            <span class="hljs-keyword">if</span> (!tag[<span class="hljs-number">2</span>] &amp;&amp; <span class="hljs-built_in">isLowerChar</span>(s[i]))<br>            &#123;<br>                tag[<span class="hljs-number">2</span>] = <span class="hljs-literal">true</span>;<br>            &#125;<br>            <span class="hljs-keyword">if</span> (!tag[<span class="hljs-number">3</span>] &amp;&amp; <span class="hljs-built_in">isSpecialChar</span>(s[i]))<br>            &#123;<br>                tag[<span class="hljs-number">3</span>] = <span class="hljs-literal">true</span>;<br>            &#125;<br>        &#125;<br><br>        <span class="hljs-comment">// 计算密码中存在几组类型</span><br>        <span class="hljs-keyword">int</span> countType = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i++)<br>        &#123;<br>            <span class="hljs-keyword">if</span> (tag[i])<br>                countType++;<br>        &#125;<br>        <span class="hljs-comment">// 输出</span><br>        <span class="hljs-keyword">if</span> (countType &gt;= <span class="hljs-number">3</span>)<br>            cout &lt;&lt; <span class="hljs-string">&quot;YES&quot;</span> &lt;&lt; endl;<br>        <span class="hljs-keyword">else</span><br>            cout &lt;&lt; <span class="hljs-string">&quot;NO&quot;</span> &lt;&lt; endl;<br>    &#125;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+
+<h3 id="最少钱币数"><a href="#最少钱币数" class="headerlink" title="最少钱币数"></a>最少钱币数</h3>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%AC%94%E8%AE%B0/%E8%80%83%E7%A0%94/">考研</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%80%83%E7%A0%94%E6%9C%BA%E8%AF%95/">考研机试</a>
+                    
+                      <a class="hover-with-bg" href="/tags/OJ/">OJ</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/10/28/%E9%A2%98%E9%9C%B8-SQL%E8%BF%9B%E9%98%B6/">
+                        <span class="hidden-mobile">SQL进阶篇</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

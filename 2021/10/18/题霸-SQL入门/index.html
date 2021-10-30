@@ -1,0 +1,617 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#c9d6de">
+  <meta name="description" content="">
+  <meta name="author" content="Wuguo">
+  <meta name="keywords" content="">
+  
+  <title>SQL入门篇 - 小武的Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#E63D43","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>小武的Blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="SQL入门篇">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-10-18 10:00" pubdate>
+        2021年10月18日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.9k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      25
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">SQL入门篇</h1>
+            
+            <div class="markdown-body">
+              <h1 id="SQL入门篇"><a href="#SQL入门篇" class="headerlink" title="SQL入门篇"></a>SQL入门篇</h1><blockquote>
+<p>这篇是我在牛客网上做SQL题时记录的，到真正做题时才发现对数据库的知识已经忘了好多了🤣🤣</p>
+<p>温故而知新，记录自己做不出来的题，方便常常回顾。</p>
+</blockquote>
+<h2 id="SQL3-查询结果去重"><a href="#SQL3-查询结果去重" class="headerlink" title="SQL3 查询结果去重"></a>SQL3 查询结果去重</h2><p>主要是两种思路：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">select university from user_profile group by university;<br>select distinct university from user_profile;<br></code></pre></div></td></tr></table></figure>
+
+
+
+<h2 id="SQL4-查询结果限制返回行数"><a href="#SQL4-查询结果限制返回行数" class="headerlink" title="SQL4 查询结果限制返回行数"></a>SQL4 查询结果限制返回行数</h2><p>主要使用<strong>LIMIT</strong>关键字，它可以接两个参数，也可以接一个：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">LIMIT m,n	返回从第m行开始的n条记录<br>LIMIT　n		返回前n条记录<br></code></pre></div></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">select device_id from user_profile order by id limit 2;<br></code></pre></div></td></tr></table></figure>
+
+
+
+<h2 id="SQL8-查询某个年龄段的用户信息"><a href="#SQL8-查询某个年龄段的用户信息" class="headerlink" title="SQL8 查询某个年龄段的用户信息"></a>SQL8 查询某个年龄段的用户信息</h2><p>可以只用<strong>between and</strong>关键字但是不同的数据库其含义有些许不同，在我测试的MySQL中是左右都是闭区间。</p>
+<p><img src="https://i.loli.net/2021/10/18/LypBV53hCeZcUDH.png" srcset="/img/loading.gif" lazyload alt="image-20211018170114402"></p>
+<p>当然可以使用<strong>and</strong>来连接两个条件。</p>
+<h2 id="SQL10-用where过滤空值"><a href="#SQL10-用where过滤空值" class="headerlink" title="SQL10 用where过滤空值"></a>SQL10 用where过滤空值</h2><figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">SELECT device_id,gender,age,university <br>from user_profile <br>where age!=&#x27;&#x27;<br># where age &lt;&gt; &#x27;&#x27;<br># where age is not null<br></code></pre></div></td></tr></table></figure>
+
+
+
+<h2 id="SQL13-where-in-和-not-in"><a href="#SQL13-where-in-和-not-in" class="headerlink" title="SQL13 where in 和 not in"></a>SQL13 where in 和 not in</h2><p>使用<strong>in</strong>或者<strong>not in</strong>关键字，可以实现判断：某个元素是否在一个集合中。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">select device_id ,gender, age, university, gpa<br>from user_profile<br>where university IN (&quot;北京大学&quot;,&quot;复旦大学&quot;,&quot;山东大学&quot;);<br></code></pre></div></td></tr></table></figure>
+
+
+
+<h2 id="SQL15-查看学校名称中含北京的用户"><a href="#SQL15-查看学校名称中含北京的用户" class="headerlink" title="SQL15 查看学校名称中含北京的用户"></a>SQL15 查看学校名称中含北京的用户</h2><p>通过<strong>like</strong>关键字，进行字符串模式匹配；</p>
+<p>复习下字符串匹配：</p>
+<figure class="highlight less"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs less"><span class="hljs-selector-tag">_</span>：匹配任意一个字符；<br>%：匹配<span class="hljs-selector-tag">0</span>个或多个字符；<br><span class="hljs-selector-attr">[ ]</span>：匹配<span class="hljs-selector-attr">[ ]</span>中的任意一个字符(若要比较的字符是连续的，则可以用连字符“-”表 达 )；<br><span class="hljs-selector-attr">[^ ]</span>：不匹配<span class="hljs-selector-attr">[ ]</span>中的任意一个字符。<br></code></pre></div></td></tr></table></figure>
+
+<figure class="highlight axapta"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs axapta"><span class="hljs-keyword">select</span> device_id, age, university<br><span class="hljs-keyword">from</span> user_profile<br><span class="hljs-keyword">where</span> university <span class="hljs-keyword">like</span> <span class="hljs-string">&#x27;%北京%&#x27;</span>;<br></code></pre></div></td></tr></table></figure>
+
+
+
+<h2 id="SQL19-分组过滤"><a href="#SQL19-分组过滤" class="headerlink" title="SQL19 分组过滤"></a>SQL19 分组过滤</h2><p>当聚合函数作为筛选条件时，不能使用where，而是having✅</p>
+<p>换句话说，where后面不能接聚合函数</p>
+<p>聚合函数：</p>
+<ol>
+<li>count()</li>
+<li>avg()</li>
+<li>sum()</li>
+<li>max()</li>
+<li>min()</li>
+</ol>
+<p>聚合函数使用：通常和分组函数group by结合使用</p>
+<ol>
+<li>select子句的选择列表</li>
+<li>having子句</li>
+<li>compute或compute by子句</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">SELECT university, <br>    AVG(question_cnt) as &#x27;avg_question_cnt&#x27;, <br>    AVG(answer_cnt) as &#x27;avg_answer_cnt&#x27;<br>FROM user_profile<br>GROUP BY university<br>HAVING AVG(question_cnt) &lt; 5 or AVG(answer_cnt) &lt; 20;<br></code></pre></div></td></tr></table></figure>
+
+
+
+<h2 id="SQL23-统计每个学校各难度的用户平均刷题数"><a href="#SQL23-统计每个学校各难度的用户平均刷题数" class="headerlink" title="SQL23 统计每个学校各难度的用户平均刷题数"></a>SQL23 统计每个学校各难度的用户平均刷题数</h2><p>因为需要按照不同难度和学校统计：order by u.university, q.difficult_level</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">SELECT u.university, q.difficult_level, COUNT(p.id) / COUNT(DISTINCT(p.device_id))<br>FROM user_profile as u, question_practice_detail as p, question_detail as q<br>where u.device_id = p.device_id and q.question_id = p.question_id<br>GROUP BY u.university, q.difficult_level<br></code></pre></div></td></tr></table></figure>
+
+
+
+<h2 id="SQL25-查找山东大学男生的GPA"><a href="#SQL25-查找山东大学男生的GPA" class="headerlink" title="SQL25 查找山东大学男生的GPA"></a>SQL25 查找山东大学男生的GPA</h2><p><strong>组合查询</strong></p>
+<p>分别查看学校为山东大学<strong>或者</strong>性别为男性的用户的device_id、gender、age和gpa数据，请取出相应结果，<strong>结果不去重。</strong></p>
+<p>注意题目要求是：不去重</p>
+<p>如果是直接使用or关键字是会去掉重复的结果的;</p>
+<p>这里就需要使用我们一个新的关键字了：<strong>UNION ALL</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">SELECT device_id, gender, age, gpa<br>FROM user_profile<br>WHERE university=&#x27;山东大学&#x27;<br>UNION ALL<br>SELECT device_id, gender, age, gpa<br>FROM user_profile<br>WHERE gender=&#x27;male&#x27;<br><br># union 会去重， union all 不会去重<br></code></pre></div></td></tr></table></figure>
+
+
+
+<h2 id="SQL26-计算25岁以上和以下的用户"><a href="#SQL26-计算25岁以上和以下的用户" class="headerlink" title="SQL26 计算25岁以上和以下的用户"></a>SQL26 计算25岁以上和以下的用户</h2><h3 id="CASE函数"><a href="#CASE函数" class="headerlink" title="CASE函数"></a>CASE函数</h3><p>类似编程语言中的if…else或者是case</p>
+<p>有两种语法形式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">#普通case函数<br>CASE  &lt;表达式&gt;<br>   WHEN &lt;值1&gt; THEN &lt;操作&gt;<br>   WHEN &lt;值2&gt; THEN &lt;操作&gt;<br>   ...<br>   ELSE &lt;操作&gt;<br>END <br><br>#搜索case函数<br>CASE<br>    WHEN &lt;条件1&gt; THEN &lt;命令&gt;<br>    WHEN &lt;条件2&gt; THEN &lt;命令&gt;<br>    ...<br>    ELSE commands<br>END<br><br></code></pre></div></td></tr></table></figure>
+
+
+
+<p>用途：</p>
+<ol>
+<li><p>结合分组进行统计</p>
+<p>例如需要统计25岁以上的人数以及25岁以下的人数，也就是这道题目的问题：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">SELECT <br>    (<br>    CASE<br>        WHEN age &gt;= 25 THEN &#x27;25岁及以上&#x27;<br>        ELSE &#x27;25岁以下&#x27;<br>    END<br>    ) age_cnt, <br>    COUNT(id) number<br>FROM user_profile<br>GROUP BY <br>(<br>    CASE<br>        WHEN age &gt;= 25 THEN &#x27;25岁及以上&#x27;<br>        ELSE &#x27;25岁以下&#x27;<br>    END)<br></code></pre></div></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql"># if判断<br>SELECT IF(age&lt;25 OR age IS NULL,&#x27;25岁以下&#x27;,&#x27;25岁以及上&#x27;) age_cut,COUNT(device_id) Number<br>FROM user_profile<br>GROUP BY age_cut<br></code></pre></div></td></tr></table></figure></li>
+<li><p>分条件更新字段值</p>
+<p>例如：将工资低于3000（包含3000）的员工涨幅工资20%,工资等于高于3000的员工涨幅8%</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">update t_salary<br>	set salary = (<br>    	case<br>        	when salary &gt; 3000 then salary + salary * 0.08<br>        	when salary &lt;= 3000 then salary + salary * 0.2<br>        end<br>    )<br></code></pre></div></td></tr></table></figure></li>
+<li><p>检查表中字段值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">select name, (<br>	case<br>    	when des in (select des from table_2) then &#x27;一致&#x27;<br>    	else &#x27;不一致&#x27;<br>    end<br>	)<br>from table_1<br></code></pre></div></td></tr></table></figure></li>
+<li><p>行列转换</p>
+<p><img src="https://pic3.zhimg.com/80/v2-4d55326f4d0192c371f791437e4fe81e_1440w.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">// 使用搜索case函数<br>SELECT NAME,<br> max( CASE  WHEN class = &#x27;语文&#x27; THEN grade ELSE 0 END ) 语文,<br> max( CASE  WHEN class = &#x27;数学&#x27; THEN grade ELSE 0 END ) 数学,<br> max( CASE  WHEN class = &#x27;英语&#x27; THEN grade ELSE 0 END ) 英语 <br>FROM<br> t_source <br>GROUP BY<br>NAME<br></code></pre></div></td></tr></table></figure></li>
+</ol>
+<h3 id="普通case和搜索case的区别"><a href="#普通case和搜索case的区别" class="headerlink" title="普通case和搜索case的区别"></a>普通case和搜索case的区别</h3><p>1、简单case函数判断条件只能是等于,而搜索case函数的条件可以是子查询,In,大于、等于等等。</p>
+<p>2、如果只是使用简单的条件分组,可以选择普通case函数,如果需要判断更多的场景,则选择搜索case更好。</p>
+<h2 id="SQL28-计算用户8月每天的练题数量"><a href="#SQL28-计算用户8月每天的练题数量" class="headerlink" title="SQL28 计算用户8月每天的练题数量"></a>SQL28 计算用户8月每天的练题数量</h2><p>这里主要使用了几个日期的函数：</p>
+<p>YEAR()</p>
+<p>MONTH()</p>
+<p>DAY()</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">SELECT DAY(date) day, COUNT(*)<br>FROM question_practice_detail<br>WHERE YEAR(date) = &#x27;2021&#x27; and MONTH(date) = &#x27;08&#x27;<br>GROUP BY day<br></code></pre></div></td></tr></table></figure>
+
+
+
+<h2 id="SQL29-计算用户平均次日留存率"><a href="#SQL29-计算用户平均次日留存率" class="headerlink" title="SQL29 计算用户平均次日留存率"></a>SQL29 计算用户平均次日留存率</h2><p>这道题目还是有点难度的，通过查看题解和讨论总结了两种方法。</p>
+<p>首先需要指导平均次日留存率的公示：p = （第一天和第二天都访问过的用户数）/（第一天访问过的用户数）</p>
+<p>值得注意的是：可能一个用户两天中都访问过好几次，但是这仍然是一次留存，所以需要使用<strong>DISTINCT</strong>关键字。</p>
+<p>方法一：用原始表左连接处理后的表，这个处理后的表是查询出所有用户在原始的访问日期加了一天的情况，最后的连接条件是设备id相同，而且日期相同。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">SELECT COUNT(distinct q2.device_id,datee) / COUNT(distinct q.device_id, date)<br>FROM question_practice_detail q<br>    left join<br>    (SELECT DISTINCT device_id, date_add(date, INTERVAL 1 day) as datee<br>     FROM question_practice_detail) as q2<br>     on q2.device_id = q.device_id and q2.datee = q.date<br></code></pre></div></td></tr></table></figure>
+
+
+
+<p>方法二：相比前者，这个更好理解一些。核心思想是让两个表自连接，连接条件是device_id相同，而且表1的日期+1天等于表1的日期。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">SELECT COUNT(t2.device_id) / COUNT(t1.device_id) avg_cnt<br>FROM (SELECT DISTINCT device_id, date FROM question_practice_detail) t1<br>    left join<br>    (SELECT DISTINCT device_id, date FROM question_practice_detail) t2<br>    on t1.device_id = t2.device_id and t1.date+1 = t2.date<br></code></pre></div></td></tr></table></figure>
+
+
+
+<h2 id="文本函数"><a href="#文本函数" class="headerlink" title="文本函数"></a>文本函数</h2><ol>
+<li>长度：length(str)</li>
+<li>连接：concat(str1, str2)</li>
+<li>分割：SUBSTRING_INDEX(str, 分隔符, 位置)</li>
+<li>定位：INSTR(substr, str)</li>
+<li>截取：substring(str, index_begin, len)</li>
+</ol>
+<h2 id="窗口函数"><a href="#窗口函数" class="headerlink" title="窗口函数"></a>窗口函数</h2><p>SQL33 找出每个学校GPA最低的同学</p>
+<p>方法一：使用窗口函数</p>
+<p>函数的含义为先分组再排序, row_number() over (partition by col1 order by col2),</p>
+<p>表示根据col1分组，在分组内部根据col2排序</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs pgsql"><span class="hljs-keyword">SELECT</span> t1.device_id, t1.university, t1.gpa<br><span class="hljs-keyword">FROM</span> (<br>        <span class="hljs-keyword">SELECT</span> device_id, university, gpa,<br>           row_number() <span class="hljs-keyword">over</span> (<span class="hljs-keyword">partition</span> <span class="hljs-keyword">by</span> university <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> gpa) ran<br>        <span class="hljs-keyword">FROM</span> user_profile) t1<br><span class="hljs-keyword">WHERE</span> t1.ran = <span class="hljs-number">1</span><br></code></pre></div></td></tr></table></figure>
+
+
+
+<p>方法二：使用子查询</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">SELECT device_id, university, gpa<br>FROM user_profile<br>WHERE gpa in (<br>    SELECT min(gpa)<br>    FROM user_profile<br>    GROUP BY university<br>)<br>GROUP BY university<br>ORDER BY university<br></code></pre></div></td></tr></table></figure>
+
+
+
+<h2 id="SQL34-统计复旦用户8月答题情况"><a href="#SQL34-统计复旦用户8月答题情况" class="headerlink" title="SQL34 统计复旦用户8月答题情况"></a>SQL34 统计复旦用户8月答题情况</h2><p>首先就有这些条件：</p>
+<ol>
+<li>连接两个表device_id相等：u.device_id = qp.device_id</li>
+<li>只统计复旦大学：u.university = ‘复旦大学’</li>
+<li>时间是8月：YESR(date)=’2021’ AND MONth(date)=’08’</li>
+</ol>
+<p>其次我们不仅需要统计做得总题目数还需要统计正确的题目数：</p>
+<ol>
+<li>总题：COUNT(*)</li>
+<li>正确题目数：SUM（if(qp.result=’right’),1,0）</li>
+</ol>
+<p>按照device_id列进行聚合：GROUP BY u.device_id</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">select u.device_id, u.university, COUNT(question_id) as question_cnt,<br>        sum(if(qp.result=&#x27;right&#x27;,1,0)) as right_question_cnt<br>from user_profile as u left join question_practice_detail as qp<br>on u.device_id = qp.device_id and YEAR(date) = &#x27;2021&#x27; and MONTH(date) = &#x27;08&#x27;<br>where u.university = &#x27;复旦大学&#x27;        <br>GROUP BY u.device_id<br></code></pre></div></td></tr></table></figure>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%AC%94%E8%AE%B0/%E6%8F%90%E9%9C%B8/">提霸</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%89%9B%E5%AE%A2%E9%A2%98%E9%9C%B8/">牛客题霸</a>
+                    
+                      <a class="hover-with-bg" href="/tags/SQL/">SQL</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/10/28/%E9%A2%98%E9%9C%B8-SQL%E8%BF%9B%E9%98%B6/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">SQL进阶篇</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/10/06/RabbitMQ/">
+                        <span class="hidden-mobile">RabbitMQ入门</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
